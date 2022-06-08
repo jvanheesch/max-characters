@@ -1,1 +1,7 @@
-<p>text-area-max-bytes works!</p>
+<form [formGroup]="noteForm">
+  <textarea [formControlName]="'textInBytes'"></textarea>
+  <div *ngIf="$any(noteForm.controls['textInBytes'].errors)?.maxBytes" class="field-error-message">
+    Gelieve een verslag in te vullen van maximaal 10 karakters
+  </div>
+  <button (click)="save()">save</button>
+</form>
