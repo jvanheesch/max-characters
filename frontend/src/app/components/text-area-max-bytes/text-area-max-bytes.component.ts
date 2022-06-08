@@ -21,4 +21,8 @@ export class TextAreaMaxBytesComponent {
     this.http.post('/notes', this.noteForm.value)
       .subscribe();
   }
+
+  count() {
+    return new TextEncoder().encode(this.noteForm.controls['textInBytes'].value || '').byteLength
+  }
 }
